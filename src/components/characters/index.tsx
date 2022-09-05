@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 import md5 from "md5"
 
@@ -41,9 +43,18 @@ export function Characters() {
                 console.log(characters)
                 return (
                     <div key={characters.id}>
+                        <Card border="primary" style={{ width: '18rem' }}>
+                            <Card.Img src={characters.thumbnail.path + '.' + characters.thumbnail.extension} />
+                            <Card.Body>
+                                <Card.Title>{characters.name}</Card.Title>
+                                <Card.Text>
+                                    {characters.description}
+                                </Card.Text>
+                                <Button variant="primary">Veja mais</Button>
+                            </Card.Body>
+                        </Card>
                         <div>
-                            <p>{characters.name}</p>
-                            <img alt="" width={50} src={characters.thumbnail.path + '.' + characters.thumbnail.extension} />
+
                         </div>
 
                     </div>
